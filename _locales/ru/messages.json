@@ -1,0 +1,35 @@
+{
+  "app_description": {
+    "message": "бесконечная ночь"
+  },
+  "name": {
+    "message": "Ubnight"
+  },
+  "change_daring_day" : {
+    "message": "Изменять в течение дня"
+  },
+  "for_this_site" : {
+    "message": "Для этого сайта"
+  },
+  "make_white_brighter": {
+    "message": "Делать белый светлее"
+  },
+  "power": {
+    "message": "Сила"
+  },
+  "filter": {
+    "message": "Фильтр"
+  },
+  "red": {
+    "message": "Красный"
+  },
+  "blue": {
+    "message": "Синий"
+  },
+  "green": {
+    "message": "Зелёный"
+  },
+  "how_bright": {
+    "message": "На сколько светлый"
+  }
+}

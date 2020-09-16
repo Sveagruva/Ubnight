@@ -1,0 +1,36 @@
+{
+    "app_description": {
+      "message": "endless night"
+    },
+    "name": {
+      "message": "Ubnight"
+    },
+    "change_daring_day" : {
+      "message": "Change during day"
+    },
+    "for_this_site" : {
+      "message": "For this site"
+    },
+    "make_white_brighter": {
+      "message": "Make white brighter"
+    },
+    "power": {
+      "message": "Power"
+    },
+    "filter": {
+      "message": "Filter"
+    },
+    "red": {
+      "message": "red"
+    },
+    "blue": {
+      "message": "blue"
+    },
+    "green": {
+      "message": "green"
+    },
+    "how_bright": {
+      "message": "How bright"
+    }
+  }
+  
