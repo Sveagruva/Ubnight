@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "0.1.2.2",
+  "version": "0.1.2.3",
   "name": "Ubnight",
   "description": "endless night",
   "content_scripts": [{
