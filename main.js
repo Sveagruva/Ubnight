@@ -1,3 +1,4 @@
+/// <reference path="chrome.intellisense.js" />
 "use strict";
 //originally created by sveagruva
 
