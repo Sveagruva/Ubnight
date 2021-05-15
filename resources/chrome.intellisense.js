@@ -1,3 +1,4 @@
+/// <reference no-default-lib="true"/>
 // taken from https://gist.github.com/Gh61/63f87b9679b446ce81d9
 var chrome = {};
 chrome.devtools = {};
@@ -7,7 +8,7 @@ chrome.declarativeWebRequest = {};
 chrome.AccessibilityObject = function () {
     /// <field name='type' type='string'>The type of this object, which determines the contents of 'details'.</field>
     /// <field name='name' type='string'>The localized name of the object, like OK or Password. Do not rely on an exact string match because the text will be in the user's language and may change in the future.</field>
-    /// <field name='context' type='string'>The localized name of the context for the object, like the name of the surrounding toolbar or group of controls.</field>
+    /// <field name='context' type='string'>The localized name of the context for the object, like the name of the surrounding toolbar or group of UIcontrols.</field>
     /// <field name='details' type=''>Other details like the state, depending on the type of object.</field>
     this.type = "";
     this.name = "";
@@ -957,7 +958,7 @@ chrome.ImageDataType = function () {
 //#region Chrome.ImageDetails
 chrome.ImageDetails = function () {
     /// <field name='format' type='string'>The format of the resulting image.  Default is <code>"jpeg"</code>.</field>
-    /// <field name='quality' type='integer'>When format is <code>"jpeg"</code>, controls the quality of the resulting image.  This value is ignored for PNG images.  As quality is decreased, the resulting image will have more visual artifacts, and the number of bytes needed to store it will decrease.</field>
+    /// <field name='quality' type='integer'>When format is <code>"jpeg"</code>, UIcontrols the quality of the resulting image.  This value is ignored for PNG images.  As quality is decreased, the resulting image will have more visual artifacts, and the number of bytes needed to store it will decrease.</field>
     this.format = "";
     this.quality = {};
 };
