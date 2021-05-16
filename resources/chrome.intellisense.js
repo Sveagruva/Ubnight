@@ -3774,7 +3774,19 @@ chrome.proxy.onProxyError = {
 //#endregion
 //#endregion
 //#region Chrome.runtime
-chrome.runtime = {};
+
+
+chrome.runtime = {
+    /// <field name='OnInstalledReason' type='string'>Enum of possible reasons of throwing onInstalled event in chrome.runtime</field>
+    OnInstalledReason: {
+        INSTALL: "install",
+        UPDATE: "update",
+        BROWSER_UPDATE: "browser_update",
+        SHARED_MODULE_UPDATE: "shared_module_update",
+    }
+};
+
+
 chrome.runtime.getBackgroundPage = function (callback) {
     /// <summary>
     /// Retrieves the JavaScript 'window' object for the background page running inside the current extension/app. If the background page is an event page, the system will ensure it is loaded before calling the callback. If there is no background page, an error is set.
