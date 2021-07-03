@@ -255,8 +255,12 @@ const ColorManipulator = {
                 ColorManipulator.CSS.names.filter(name => newRule.includes(name)).sort((a, b) => a.length > b.length).forEach(
                     colorName => newRule = newRule.replaceAll(colorName, ColorManipulator.CSS.namesComputedColors[colorName]));
 
-                if(!doReduce || rule !== newRule || ['inherit', 'initial', 'transparent', 'unset'].some(w => rule.includes(w)))
+                if(!doReduce || rule !== newRule || ['inherit', 'initial', 'transparent', 'unset'].some(w => rule.includes(w))){
+                    if(style.getPropertyPriority(colorProperty) === 'important')
+                        newRule += ' !important';
+
                     transformed += `${colorProperty}:${newRule};`;
+                }
             });
 
             return transformed;
