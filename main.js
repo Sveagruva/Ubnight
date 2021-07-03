@@ -184,44 +184,50 @@ const ColorManipulator = {
             if(elm.attributes.style.textContent !== transformedStyles)
                 elm.setAttribute('style', transformedStyles);
         },
+        getPrefix: rule => {
+            switch(rule.constructor.name){
+                case 'CSSStyleRule':
+                    return rule.selectorText;
+                case 'CSSMediaRule':
+                    return '@media ' + rule.media.mediaText;
+                case 'CSSPageRule':
+                    return '@page';
+                case 'CSSSupportsRule':
+                    return '@supports ' + rule.conditionText;
+                case 'CSSKeyframesRule':
+                    return '@keyframes ' + rule.name;
+                case 'CSSFontFaceRule':
+                default:
+                    return '';
+            }
+        },
         transformRule: rule => {
             let newRules = '';
 
-            // TODO other rules
             switch(rule.constructor.name){
                 case 'CSSStyleRule':
+                case 'CSSPageRule':
                     newRules = ColorManipulator.CSS.transformStyleDeclarationColors(rule.style);
-
-                    if(newRules === '')
-                        return newRules;
-                    return rule.selectorText + '{' + newRules + '}';
+                    break;
                 case 'CSSMediaRule':
-                    for (let i = 0; i < rule.cssRules.length; i++)
-                        newRules += ColorManipulator.CSS.transformRule(rule.cssRules[i]);
-
-                    if(newRules === '')
-                        return newRules;
-                    return '@media ' + rule.media.mediaText + '{' + newRules + '}';
                 case 'CSSSupportsRule':
                     for (let i = 0; i < rule.cssRules.length; i++)
                         newRules += ColorManipulator.CSS.transformRule(rule.cssRules[i]);
-
-                    if(newRules === '')
-                        return newRules;
-                    return '@supports ' + rule.conditionText + '{' + newRules + '}';
+                    break;
                 case 'CSSKeyframesRule':
                     for (let i = 0; i < rule.cssRules.length; i++)
                         newRules += ColorManipulator.CSS.transformStyleDeclarationColors(rule.cssRules[i].style, false);
-
-                    if(newRules === '')
-                        return newRules;
-                    return '@keyframes ' + rule.name + '{' + newRules + '}';
+                    break;
                 case 'CSSFontFaceRule':
-                    return newRules;
+                    break;
                 default:
                     console.warn('unknown rule type: ' + rule.constructor.name, rule);
                     return newRules;
             }
+
+            if(newRules === '')
+                return newRules;
+            return ColorManipulator.CSS.getPrefix(rule) + '{' + newRules + '}';
         },
         transformStyleDeclarationColors: (style, doReduce = true) => {
             let transformed = '';
