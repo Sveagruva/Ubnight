@@ -13,6 +13,8 @@ const Html = {
         if(!Html.correctionSheets.has(styleElm)){
             const correctionSheet = document.createElement('style');
             correctionSheet.className = "ubnightSheet";
+            if(styleElm.media)
+                correctionSheet.media = styleElm.media;
 
             styleElm.after(correctionSheet);
 
@@ -217,7 +219,7 @@ const ColorManipulator = {
                 case 'CSSFontFaceRule':
                     return newRules;
                 default:
-                    // console.warn('unknown rule type: ' + rule.constructor.name, rule);
+                    console.warn('unknown rule type: ' + rule.constructor.name, rule);
                     return newRules;
             }
         },
