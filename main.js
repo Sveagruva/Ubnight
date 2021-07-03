@@ -253,7 +253,7 @@ const ColorManipulator = {
                 ColorManipulator.CSS.names.filter(name => newRule.includes(name)).sort((a, b) => a.length > b.length).forEach(
                     colorName => newRule = newRule.replaceAll(colorName, ColorManipulator.CSS.namesComputedColors[colorName]));
 
-                if(!doReduce || rule !== newRule)
+                if(!doReduce || rule !== newRule || ['inherit', 'initial', 'transparent', 'unset'].some(w => rule.includes(w)))
                     transformed += `${colorProperty}:${newRule};`;
             });
 
