@@ -199,7 +199,7 @@ const ColorManipulator = {
 
                     if(newRules === '')
                         return newRules;
-                    return rule.selectorText + '{' + newRules + '}';
+                    return '@media ' + rule.media.mediaText + '{' + newRules + '}';
                 case 'CSSSupportsRule':
                     for (let i = 0; i < rule.cssRules.length; i++)
                         newRules += ColorManipulator.CSS.transformRule(rule.cssRules[i]);
