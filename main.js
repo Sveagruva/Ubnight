@@ -299,11 +299,10 @@ const init = async () => {
 
         style.textContent = 'a:-webkit-any-link:active{color:red}button:disabled,input[type=button i]:disabled,input[type=file i]:disabled::-webkit-file-upload-button,input[type=reset i]:disabled,input[type=submit i]:disabled,keygen:disabled,optgroup:disabled,option:disabled,select:disabled,select[disabled]>option{color:#6d6d6d}::-webkit-input-placeholder{color:#a9a9a9}button,input[type=button i],input[type=file i]::-webkit-file-upload-button,input[type=reset i],input[type=submit i]{color:#000;border:2px outset #f0f0f0;background-color:#f0f0f0}input[type=color i]{background-color:#f0f0f0}html{background-color:#fff;color:#000}body{color: inherit;}body:-webkit-full-page-media{background-color:#000}input{background-color:#fff;color:#000}textarea{background-color:#fff;color:#000}input:-webkit-autofill,select:-webkit-autofill,textarea:-webkit-autofill{background-color:#faffbd!important;color:#000!important}input[type=range i]{color:#909090}input[type=color i]::-webkit-color-swatch{background-color:#000;border:1px solid #777}input[type=color i][list]::-webkit-color-swatch{border-color:#000}input::-webkit-calendar-picker-indicator:hover{background-color:#eee}select{color:#000;background-color:#fff}select:-internal-list-box{border:1px inset grey}select:-internal-list-box option:checked:disabled,select:-internal-list-box:disabled option:checked{color:grey!important}meter::-webkit-meter-bar{background:linear-gradient(to bottom,#ddd,#eee 20%,#ccc 45%,#ccc 55%,#ddd)}meter::-webkit-meter-optimum-value{background:linear-gradient(to bottom,#ad7,#cea 20%,#7a3 45%,#7a3 55%,#ad7)}meter::-webkit-meter-suboptimum-value{background:linear-gradient(to bottom,#fe7,#ffc 20%,#db3 45%,#db3 55%,#fe7)}meter::-webkit-meter-even-less-good-value{background:linear-gradient(to bottom,#f77,#fcc 20%,#d44 45%,#d44 55%,#f77)}progress::-webkit-progress-bar{background-color:grey}progress::-webkit-progress-value{background-color:green}mark{background-color:#ff0}dialog{background:#fff;color:#000}dialog::backdrop{background:rgba(0,0,0,0.1)}';
 
-        try{
-            Html.head.childNodes[0].before(style);
-        } catch (e) {
+        if(Html.head.childNodes.length === 0)
             Html.head.append(style);
-        }
+        else
+            Html.head.childNodes[0].before(style);
     });
     //#endregion
 
